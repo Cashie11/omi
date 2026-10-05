@@ -92,6 +92,12 @@
             </div>
 
             <div class="field">
+                <label for="social_tiktok">TikTok link</label>
+                <input type="url" id="social_tiktok" name="social_tiktok" value="{{ old('social_tiktok', $settings['social_tiktok'] ?? '') }}">
+                <div class="hint">Full TikTok profile link, for example https://www.tiktok.com/@username.</div>
+            </div>
+
+            <div class="field">
                 <label for="contact_email_primary">Primary email</label>
                 <input type="email" id="contact_email_primary" name="contact_email_primary" value="{{ old('contact_email_primary', $settings['contact_email_primary'] ?? '') }}" required>
                 @error('contact_email_primary')<div class="error">{{ $message }}</div>@enderror

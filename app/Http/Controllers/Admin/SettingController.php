@@ -23,6 +23,7 @@ class SettingController extends Controller
         'opening_hours',
         'phone_call',
         'phone_whatsapp',
+        'social_tiktok',
         'contact_email_primary',
         'contact_email_secondary',
         'address',

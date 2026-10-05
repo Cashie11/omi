@@ -470,6 +470,36 @@ img {
     transform: scale(1.03);
 }
 
+/* ---------- Video ---------- */
+
+.video-wrap {
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--brown-dark);
+    line-height: 0;
+}
+
+.video-wrap video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.video-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.video-layout .video-wrap {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
 /* ---------- Consultants ---------- */
 
 .consultants-grid {
@@ -655,6 +685,80 @@ img {
     color: var(--brown);
 }
 
+/* ---------- Social links ---------- */
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    color: var(--brown);
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.social-link:hover {
+    background: var(--gold);
+    color: var(--brown-dark);
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.site-footer .social-link {
+    background: rgba(250, 245, 233, 0.12);
+    color: var(--cream);
+}
+
+.site-footer .social-link:hover {
+    background: var(--gold);
+    color: var(--brown-dark);
+}
+
+/* ---------- Floating WhatsApp button ---------- */
+
+.float-whatsapp {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--cream);
+    box-shadow: 0 8px 20px rgba(43, 29, 20, 0.3);
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.float-whatsapp:hover {
+    background: var(--green-dark);
+    color: var(--cream);
+    transform: translateY(-3px);
+}
+
+.float-whatsapp svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+}
+
 /* ---------- Call to action band ---------- */
 
 .cta-band {
@@ -795,6 +899,16 @@ img {
     .about-layout {
         grid-template-columns: 0.9fr 1.1fr;
         gap: 3rem;
+    }
+
+    .video-layout {
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+    }
+
+    .video-layout .video-wrap {
+        max-width: 300px;
+        margin: 0;
     }
 
     .cards-grid {

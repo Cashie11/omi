@@ -71,6 +71,12 @@
                             <a href="mailto:{{ setting('contact_email_primary') }}">{{ setting('contact_email_primary') }}</a><br>
                             <a href="mailto:{{ setting('contact_email_secondary') }}">{{ setting('contact_email_secondary') }}</a>
                         </li>
+                        @if (setting('phone_call'))
+                            <li>
+                                <span class="label">Phone</span>
+                                <a href="tel:+{{ phone_digits(setting('phone_call')) }}">{{ setting('phone_call') }}</a>
+                            </li>
+                        @endif
                         <li>
                             <span class="label">Opening hours</span>
                             {{ setting('opening_hours') }}
@@ -83,15 +89,7 @@
                         @endif
                     </ul>
 
-                    <div class="contact-actions">
-                        @if (setting('phone_call'))
-                            <a class="btn btn-brown" href="tel:+{{ phone_digits(setting('phone_call')) }}">Call Us</a>
-                        @endif
-
-                        @if (setting('phone_whatsapp'))
-                            <a class="btn btn-green" href="https://wa.me/{{ phone_digits(setting('phone_whatsapp')) }}" target="_blank" rel="noopener">WhatsApp Us</a>
-                        @endif
-                    </div>
+                    @include('partials.social-links')
                 </div>
             </div>
 

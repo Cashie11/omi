@@ -50,7 +50,23 @@
         </div>
     </section>
 
-    <section class="section" style="padding-top: 0;">
+    <section class="section">
+        <div class="container video-layout">
+            <div class="video-wrap">
+                <video controls playsinline preload="metadata">
+                    <source src="{{ asset('videos/welcome.mp4') }}" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+            </div>
+            <div class="video-text">
+                <h2>A warm welcome</h2>
+                <p>Welcome to Omisewa Temple. This short video is a greeting from us, and we hope it gives you a gentle first sense of the space we hold for our visitors.</p>
+                <p>Whether you come with a clear question or simply wish to be heard, you are welcome here. Reach out whenever you are ready.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
         <div class="container">
             <div class="section-heading">
                 <h2>Photos</h2>

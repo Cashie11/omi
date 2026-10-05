@@ -1,0 +1,362 @@
+/* ============================================================
+   Omisewa Temple - admin panel stylesheet
+   Plain, large controls, big buttons. No gradients.
+   ============================================================ */
+
+:root {
+    --brown: #3e2a1e;
+    --brown-dark: #2b1d14;
+    --cream: #faf5e9;
+    --cream-dark: #f1e8d4;
+    --cream-line: #e5d9bf;
+    --gold: #c9a227;
+    --gold-dark: #a8861b;
+    --green: #35513b;
+    --green-dark: #2a3f2f;
+    --white: #ffffff;
+    --text: #3e2a1e;
+    --muted: #6b5746;
+    --danger: #8f2d1f;
+    --radius: 10px;
+    --shadow: 0 4px 16px rgba(43, 29, 20, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--cream-dark);
+}
+
+a { color: var(--green); }
+
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--brown);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* ---------- Top bar ---------- */
+
+.admin-topbar {
+    background: var(--brown);
+    color: var(--cream);
+}
+
+.admin-topbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 64px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.admin-topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--cream);
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-weight: 700;
+}
+
+.admin-topbar .brand img {
+    height: 34px;
+    width: 34px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: var(--cream);
+}
+
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.admin-nav a {
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+    background: rgba(250, 245, 233, 0.14);
+    color: var(--gold);
+}
+
+/* ---------- Layout ---------- */
+
+.admin-main {
+    padding: 2.5rem 0 4rem;
+}
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.page-head h1 {
+    margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-gold { background: var(--gold); color: var(--brown-dark); }
+.btn-gold:hover { background: var(--gold-dark); }
+
+.btn-green { background: var(--green); color: var(--cream); }
+.btn-green:hover { background: var(--green-dark); }
+
+.btn-brown { background: var(--brown); color: var(--cream); }
+.btn-brown:hover { background: var(--brown-dark); }
+
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: #6f2215; }
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* ---------- Panels and cards ---------- */
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--cream-line);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.panel h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.panel h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ---------- Tables and lists ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--cream-line);
+    vertical-align: top;
+}
+
+th {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--cream-dark);
+}
+
+.list-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* ---------- Forms ---------- */
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    font-size: 1.05rem;
+    border: 1px solid var(--cream-line);
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--text);
+    font-family: inherit;
+}
+
+.field textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+}
+
+.field .hint {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+}
+
+.field .error {
+    color: var(--danger);
+    font-size: 0.92rem;
+    margin-top: 0.3rem;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* ---------- Alerts ---------- */
+
+.alert {
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: #e7f0e8;
+    color: #2a4d30;
+    border: 1px solid #c8ddcb;
+}
+
+.alert-danger {
+    background: #f8e7e4;
+    color: var(--danger);
+    border: 1px solid #eccdc6;
+}
+
+/* ---------- Login ---------- */
+
+.login-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    background: var(--brown);
+}
+
+.login-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-brand img {
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: var(--cream);
+    margin: 0 auto 0.75rem;
+}
+
+.login-brand h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.login-brand p {
+    color: var(--muted);
+    margin: 0.25rem 0 0;
+}
+
+/* ---------- Empty state ---------- */
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 2.5rem 1rem;
+}
+
+.empty p {
+    margin-bottom: 1.25rem;
+}
+
+/* ---------- Message badge ---------- */
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-new { background: #f6e3c0; color: var(--brown); }
+.badge-read { background: #e7f0e8; color: #2a4d30; }

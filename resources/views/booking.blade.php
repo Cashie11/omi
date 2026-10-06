@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Contact - '.setting('site_name', 'Omisewa Temple'))
+@section('title', 'Book a Session - '.setting('site_name', 'Omisewa Temple'))
 
 @section('content')
 
     <section class="page-header">
         <div class="container">
-            <h1>Connect With the Temple</h1>
-            <p>We would be glad to hear from you. Send us a message and we will get back to you.</p>
+            <h1>Book a Session</h1>
+            <p>Request an appointment and we will get back to you to confirm a date and time.</p>
         </div>
     </section>
 
@@ -23,10 +23,9 @@
                     <div class="alert alert-danger">Please check the form and try again.</div>
                 @endif
 
-                <form id="contact-form" class="contact-form" action="{{ route('contact.store') }}" method="POST">
+                <form id="booking-form" class="contact-form" action="{{ route('booking.store') }}" method="POST">
                     @csrf
 
-                    {{-- Honeypot: hidden from people, ignored if filled by a bot. --}}
                     <div class="honeypot" aria-hidden="true">
                         <label for="website">Website</label>
                         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -43,7 +42,6 @@
                     <div class="field">
                         <label for="phone">Phone</label>
                         <input type="tel" id="phone" name="phone" value="{{ old('phone') }}">
-                        @error('phone')<div class="error">{{ $message }}</div>@enderror
                     </div>
 
                     <div class="field">
@@ -52,43 +50,41 @@
                         @error('email')<div class="error">{{ $message }}</div>@enderror
                     </div>
 
+                    @if ($services->isNotEmpty())
+                        <div class="field">
+                            <label for="service">What would you like to book?</label>
+                            <select id="service" name="service">
+                                <option value="">Please choose...</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->title }}" @selected(old('service') === $service->title)>{{ $service->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+
                     <div class="field">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required>{{ old('message') }}</textarea>
-                        @error('message')<div class="error">{{ $message }}</div>@enderror
+                        <label for="preferred_date">Preferred date</label>
+                        <input type="date" id="preferred_date" name="preferred_date" value="{{ old('preferred_date') }}" required>
+                        @error('preferred_date')<div class="error">{{ $message }}</div>@enderror
                     </div>
 
-                    <button type="submit" class="btn btn-green btn-lg btn-block">Send Message</button>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Anything you would like us to know...">{{ old('message') }}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-green btn-lg btn-block">Request Appointment</button>
                 </form>
             </div>
 
             <div>
                 <div class="contact-details">
-                    <h3>Get in touch</h3>
+                    <h3>What happens next</h3>
                     <ul>
-                        <li>
-                            <span class="label">Email</span>
-                            <a href="mailto:{{ setting('contact_email_primary') }}">{{ setting('contact_email_primary') }}</a><br>
-                            <a href="mailto:{{ setting('contact_email_secondary') }}">{{ setting('contact_email_secondary') }}</a>
-                        </li>
-                        @if (setting('phone_call'))
-                            <li>
-                                <span class="label">Phone</span>
-                                <a href="tel:+{{ phone_digits(setting('phone_call')) }}">{{ setting('phone_call') }}</a>
-                            </li>
-                        @endif
-                        <li>
-                            <span class="label">Opening hours</span>
-                            {{ setting('opening_hours') }}
-                        </li>
-                        @if (setting('address'))
-                            <li>
-                                <span class="label">Address</span>
-                                {{ setting('address') }}
-                            </li>
-                        @endif
+                        <li><span class="label">We receive your request</span> Your details are sent safely to the temple.</li>
+                        <li><span class="label">We confirm with you</span> We contact you to agree a date and time.</li>
+                        <li><span class="label">Your session</span> A private, unhurried consultation.</li>
                     </ul>
-
                     @include('partials.social-links')
                 </div>
             </div>
@@ -102,7 +98,7 @@
 <script>
     (function () {
         var started = Date.now();
-        var form = document.getElementById('contact-form');
+        var form = document.getElementById('booking-form');
         var timer = document.getElementById('form_time');
 
         if (form && timer) {

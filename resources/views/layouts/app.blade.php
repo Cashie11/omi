@@ -26,7 +26,11 @@
                 <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
                 <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
                 <li><a href="{{ route('consultants') }}" class="{{ request()->routeIs('consultants') ? 'active' : '' }}">Consultants</a></li>
+                <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services', 'services.show') ? 'active' : '' }}">Services</a></li>
+                <li><a href="{{ route('teachings') }}" class="{{ request()->routeIs('teachings') ? 'active' : '' }}">Teachings</a></li>
+                <li><a href="{{ route('faq') }}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">FAQ</a></li>
                 <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+                <li class="nav-cta"><a class="btn btn-gold" href="{{ route('booking') }}">Book a Session</a></li>
             </ul>
         </nav>
     </header>
@@ -52,6 +56,10 @@
                     <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('about') }}">About</a></li>
                     <li><a href="{{ route('consultants') }}">Consultants</a></li>
+                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="{{ route('teachings') }}">Teachings</a></li>
+                    <li><a href="{{ route('faq') }}">FAQ</a></li>
+                    <li><a href="{{ route('booking') }}">Book a Session</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>

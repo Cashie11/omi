@@ -16,15 +16,24 @@
                 <span>{{ setting('site_name', 'Omisewa Temple') }} Admin</span>
             </a>
 
+            <input type="checkbox" id="admin-nav-toggle" class="admin-nav-toggle" hidden>
+            <label for="admin-nav-toggle" class="admin-nav-toggle-label" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </label>
+
             <nav class="admin-nav">
                 <a href="{{ route('admin.messages.index') }}" class="{{ request()->routeIs('admin.messages.*') ? 'active' : '' }}">Messages</a>
+                <a href="{{ route('admin.bookings.index') }}" class="{{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">Bookings</a>
                 <a href="{{ route('admin.consultants.index') }}" class="{{ request()->routeIs('admin.consultants.*') ? 'active' : '' }}">Consultants</a>
+                <a href="{{ route('admin.services.index') }}" class="{{ request()->routeIs('admin.services.*') ? 'active' : '' }}">Services</a>
+                <a href="{{ route('admin.teachings.index') }}" class="{{ request()->routeIs('admin.teachings.*') ? 'active' : '' }}">Teachings</a>
+                <a href="{{ route('admin.faqs.index') }}" class="{{ request()->routeIs('admin.faqs.*') ? 'active' : '' }}">FAQs</a>
                 <a href="{{ route('admin.gallery.index') }}" class="{{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">Gallery</a>
                 <a href="{{ route('admin.settings.edit') }}" class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">Settings</a>
                 <a href="{{ route('home') }}" target="_blank" rel="noopener">View Site</a>
-                <form action="{{ route('admin.logout') }}" method="POST" style="display:inline;">
+                <form action="{{ route('admin.logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-sm btn-gold" style="padding:0.4rem 1rem;">Log Out</button>
+                    <button type="submit" class="btn btn-sm btn-gold">Log Out</button>
                 </form>
             </nav>
         </div>

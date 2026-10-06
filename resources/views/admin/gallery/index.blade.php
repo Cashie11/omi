@@ -29,9 +29,9 @@
                 <tbody>
                     @foreach ($images as $image)
                         <tr>
-                            <td><img src="{{ $image->url() }}" alt="{{ $image->caption ?: 'Image' }}" class="thumb"></td>
-                            <td>{{ $image->caption ?: 'No caption' }}</td>
-                            <td>
+                            <td data-label="Image"><img src="{{ $image->url() }}" alt="{{ $image->caption ?: 'Image' }}" class="thumb"></td>
+                            <td data-label="Caption">{{ $image->caption ?: 'No caption' }}</td>
+                            <td data-label="Actions">
                                 <div class="list-actions">
                                     <a class="btn btn-sm btn-brown" href="{{ route('admin.gallery.edit', $image) }}">Edit</a>
                                     <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST" onsubmit="return confirm('Delete this image?');">

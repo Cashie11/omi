@@ -36,4 +36,17 @@
         </div>
     </section>
 
+    <section class="section" style="padding-top: 0;">
+        <div class="container" style="max-width: 780px;">
+            <div class="founder-bio">
+                <h2>Meet Omisewa</h2>
+                @foreach (preg_split('/\n+/', setting('founder_bio')) as $paragraph)
+                    @if (trim($paragraph) !== '')
+                        <p>{{ trim($paragraph) }}</p>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+
 @endsection

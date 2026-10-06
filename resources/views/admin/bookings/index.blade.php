@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
-@section('title', 'Messages')
+@section('title', 'Bookings')
 
 @section('content')
 
     <div class="page-head">
-        <h1>Messages</h1>
+        <h1>Booking Requests</h1>
     </div>
 
-    @if ($messages->isEmpty())
+    @if ($bookings->isEmpty())
         <div class="panel">
             <div class="empty">
-                <p>No messages yet. Messages from the contact form will appear here.</p>
+                <p>No booking requests yet. Requests from the booking page will appear here.</p>
             </div>
         </div>
     @else
@@ -20,20 +20,20 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Received</th>
+                        <th>Service</th>
+                        <th>Preferred date</th>
                         <th>Status</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($messages as $message)
+                    @foreach ($bookings as $booking)
                         <tr>
-                            <td data-label="Name">{{ $message->name }}</td>
-                            <td data-label="Email"><a href="mailto:{{ $message->email }}">{{ $message->email }}</a></td>
-                            <td data-label="Received">{{ $message->created_at->format('d M Y, H:i') }}</td>
+                            <td data-label="Name">{{ $booking->name }}</td>
+                            <td data-label="Service">{{ $booking->service ?: 'Not specified' }}</td>
+                            <td data-label="Date">{{ $booking->preferred_date->format('d M Y') }}</td>
                             <td data-label="Status">
-                                @if ($message->isRead())
+                                @if ($booking->isRead())
                                     <span class="badge badge-read">Read</span>
                                 @else
                                     <span class="badge badge-new">New</span>
@@ -41,8 +41,8 @@
                             </td>
                             <td data-label="Actions">
                                 <div class="list-actions">
-                                    <a class="btn btn-sm btn-green" href="{{ route('admin.messages.show', $message) }}">View</a>
-                                    <form action="{{ route('admin.messages.destroy', $message) }}" method="POST" onsubmit="return confirm('Delete this message?');">
+                                    <a class="btn btn-sm btn-green" href="{{ route('admin.bookings.show', $booking) }}">View</a>
+                                    <form action="{{ route('admin.bookings.destroy', $booking) }}" method="POST" onsubmit="return confirm('Delete this booking request?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
-@section('title', 'Consultants')
+@section('title', 'Teachings & Wisdom')
 
 @section('content')
 
     <div class="page-head">
-        <h1>Consultants</h1>
-        <a class="btn btn-green" href="{{ route('admin.consultants.create') }}">Add Consultant</a>
+        <h1>Teachings &amp; Wisdom</h1>
+        <a class="btn btn-green" href="{{ route('admin.teachings.create') }}">Add Topic</a>
     </div>
 
-    @if ($consultants->isEmpty())
+    @if ($topics->isEmpty())
         <div class="panel">
             <div class="empty">
-                <p>No consultants yet.</p>
-                <a class="btn btn-green" href="{{ route('admin.consultants.create') }}">Add Consultant</a>
+                <p>No topics yet.</p>
+                <a class="btn btn-green" href="{{ route('admin.teachings.create') }}">Add Topic</a>
             </div>
         </div>
     @else
@@ -21,20 +21,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Photo</th>
-                        <th>Name</th>
+                        <th>Topic</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($consultants as $consultant)
+                    @foreach ($topics as $topic)
                         <tr>
-                            <td data-label="Photo"><img src="{{ $consultant->photoUrl() }}" alt="" class="thumb"></td>
-                            <td data-label="Name">{{ $consultant->name }}</td>
+                            <td data-label="Topic">{{ $topic->title }}</td>
                             <td data-label="Actions">
                                 <div class="list-actions">
-                                    <a class="btn btn-sm btn-brown" href="{{ route('admin.consultants.edit', $consultant) }}">Edit</a>
-                                    <form action="{{ route('admin.consultants.destroy', $consultant) }}" method="POST" onsubmit="return confirm('Remove this consultant?');">
+                                    <a class="btn btn-sm btn-brown" href="{{ route('admin.teachings.edit', $topic) }}">Edit</a>
+                                    <form action="{{ route('admin.teachings.destroy', $topic) }}" method="POST" onsubmit="return confirm('Remove this topic?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>

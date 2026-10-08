@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             'social_tiktok' => 'https://www.tiktok.com/@adeodoosungbemi',
             'contact_email_primary' => 'AdeOdo@omisewatemple.com',
             'contact_email_secondary' => 'Osungbemi@omisewatemple.com',
-            'address' => '',
+            'address' => 'Akeem Shobowale, Wisdom Height Estate, Isheri OPIC',
             'map_embed_url' => '',
         ];
 
